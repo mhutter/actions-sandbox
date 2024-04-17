@@ -3,6 +3,9 @@ name: Test Stuff
 on:
   push: {}
 
+env:
+  TOKEN: ${{ secrets.TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,7 +14,6 @@ jobs:
       url: 'https://mhu.dev'
     steps:
       - name: Environment
-        run: env
-
+        run: env | sort
       - name: Print sekrit
         run: echo "$TOKEN" | base64
