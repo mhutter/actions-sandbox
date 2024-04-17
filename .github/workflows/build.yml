@@ -3,13 +3,12 @@ name: Test Stuff
 on:
   push: {}
 
-environment:
-  name: ${{ github.ref_name }}
-  url: 'https://mhu.dev'
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref_name }}
+      url: 'https://mhu.dev'
     steps:
       - name: Environment
         run: env
